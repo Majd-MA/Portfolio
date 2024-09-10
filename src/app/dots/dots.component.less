@@ -1,0 +1,27 @@
+@dot-size: 12px;
+@dot-color: #555;
+@dot-active-color: #000;
+@transition-duration: 0.3s;
+
+.dots {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.dot {
+  width: @dot-size;
+  height: @dot-size;
+  border-radius: 50%;
+  background-color: @dot-color;
+  cursor: pointer;
+  transition: background-color @transition-duration ease;
+
+  &.active {
+    background-color: @dot-active-color;
+  }
+}

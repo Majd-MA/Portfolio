@@ -1,0 +1,7 @@
+<div class="dots">
+  <div *ngFor="let page of [].constructor(totalPages); let i = index"
+       class="dot"
+       [class.active]="i + 1 === currentPage"
+       (click)="changePage(i + 1)">
+  </div>
+</div>
