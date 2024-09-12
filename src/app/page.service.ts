@@ -1,43 +1,49 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PageService {
-  private currentPage = new BehaviorSubject<number>(1);  // Starting at page 1
-  private totalPages = 5;  // Total number of pages (could be dynamic)
+  private pages = ['home', 'projects', 'skills', 'achievements', 'about'];  // Define the page routes
+  private currentPage = new BehaviorSubject<number>(0);
 
   // Observable for current page
   currentPage$ = this.currentPage.asObservable();
+  constructor(private router: Router) {}
 
-  // Getters for current page and total pages
-  getCurrentPage(): number {
-    return this.currentPage.getValue();
+  // Navigate to a specific page by its index
+  navigateToPage(index: number) {
+    if (index >= 0 && index < this.pages.length) {
+      this.currentPage.next(index);
+      this.router.navigate([this.pages[index]]);
+    }
   }
 
-  getTotalPages(): number {
-    return this.totalPages;
-  }
-
-  // Methods to navigate between pages
+  // Navigate to the next page
   nextPage() {
-    const newPage = this.getCurrentPage() + 1;
-    if (newPage <= this.totalPages) {
-      this.currentPage.next(newPage);
+    const newIndex = this.currentPage.getValue() + 1;
+    if (newIndex < this.pages.length) {
+      this.navigateToPage(newIndex);
+    }
+    else {
+      this.navigateToPage(0);
     }
   }
 
+  // Navigate to the previous page
   previousPage() {
-    const newPage = this.getCurrentPage() - 1;
-    if (newPage >= 1) {
-      this.currentPage.next(newPage);
+    const newIndex = this.currentPage.getValue() - 1;
+    if (newIndex >= 0) {
+      this.navigateToPage(newIndex);
+    }
+    else {
+      this.navigateToPage(this.pages.length - 1);
     }
   }
 
-  setPage(page: number) {
-    if (page >= 1 && page <= this.totalPages) {
-      this.currentPage.next(page);
-    }
+  getTotalPages(){
+    return this.pages.length;
   }
 }

@@ -28,6 +28,6 @@ export class DotsComponent implements OnInit {
 
   // When a dot is clicked, change the current page
   changePage(page: number) {
-    this.pageService.setPage(page);
+    this.pageService.navigateToPage(page);
   }
 }

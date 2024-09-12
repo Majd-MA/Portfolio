@@ -1,0 +1,142 @@
+@bg-color: #fff;
+@text-color: #000;
+@secondary-text-color:#0005;
+@primary-color: #0005;
+
+.introduction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: @bg-color;
+  color: @text-color;
+  font-family: Georgia, "Times New Roman", 'Arial', sans-serif;
+  gap: 20px;
+
+  .intro-text {
+    max-width: 800px;
+
+    .name {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .tagline {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: @secondary-text-color;
+    }
+
+    .bio {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .intro-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: 2px solid @primary-color;
+        background-color: transparent;
+        color: @primary-color;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: @primary-color;
+          color: @bg-color;
+        }
+      }
+    }
+  }
+}
+.introduction {
+  .intro-text {
+    animation: fadeIn 1.5s ease-in-out;
+
+    .name, .tagline, .bio, .cta-button {
+      opacity: 0;
+      animation: slideUp 1.2s ease forwards;
+    }
+
+    .name { animation-delay: 0.2s; }
+    .tagline { animation-delay: 0.4s; }
+    .bio { animation-delay: 0.6s; }
+    .cta-button { animation-delay: 0.8s; }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .introduction .intro-text {
+    padding: 20px;
+
+    .name {
+      font-size: 2.5rem;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+    }
+
+    .bio {
+      font-size: 1rem;
+    }
+
+    .cta-button {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+  }
+}
+
+.profile-image {
+  border-radius: 20%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.9s ease;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+}
+
