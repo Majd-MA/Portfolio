@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
   providedIn: 'root'
 })
 export class PageService {
-  private pages = ['home', 'projects', 'skills', 'achievements', 'about'];  // Define the page routes
+  private pages = ['home', 'projects', 'achievements', 'about'];  // Define the page routes
   private currentPage = new BehaviorSubject<number>(0);
 
   // Observable for current page

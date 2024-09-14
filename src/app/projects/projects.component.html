@@ -1,1 +1,15 @@
-<p>projects works!</p>
+<div class="content-container">
+  <div class="input-wrapper">
+    <span class="placeholder"></span>
+  </div>
+
+<section class="projects-section">
+  <div class="projects-grid">
+    <div class="project-card" *ngFor="let project of projects">
+      <img src="{{project.image}}" alt="{{project.name}}" class="project-image" />
+      <h3 class="project-name">{{project.name}}</h3>
+      <p class="project-description">{{project.description}}</p>
+    </div>
+  </div>
+</section>
+</div>

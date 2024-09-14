@@ -1,13 +1,16 @@
 @primary-color: #333;
 
-body {
+.body {
   font-family: 'Roboto', sans-serif;
   background-color: #f4f4f4;
   color: @primary-color;
   margin: 0;
-  padding: 0px;
+  padding: 0;
 }
-html, body {
+.html, body {
   height: 100%;
   margin: 0;
+}
+.html,body::-webkit-scrollbar {
+  display: none;
 }
