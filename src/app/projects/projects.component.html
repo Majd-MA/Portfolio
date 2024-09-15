@@ -1,15 +1,71 @@
 <div class="content-container">
-  <div class="input-wrapper">
-    <span class="placeholder"></span>
+  <div class="filter">
+    <div class="filter-placeholder">
+      <div id="filter_icon">
+        <img src="https://res.cloudinary.com/dxgro47nn/image/upload/v1726373447/black-filter-icon_nnpjnv.png"
+             alt="filter_icon" width="20" height="20">
+      </div>
+    </div>
+    <div class="filter-bar" (click)="toggleFilterPopup()">
+
+
+      <div class="filter-tooltip" *ngIf="showTip">
+
+        <span class="close-tip" (click)="hideTip()">Helps you filter the projects!</span>
+      </div>
+
+      <div *ngIf="selectedTags.length > 0" class="tag-container">
+        <div *ngFor="let tag of selectedTags" class="filter-tag">
+          {{ tag }}
+        </div>
+      </div>
+
+
+    </div>
+
   </div>
 
-<section class="projects-section">
-  <div class="projects-grid">
-    <div class="project-card" *ngFor="let project of projects">
-      <img src="{{project.image}}" alt="{{project.name}}" class="project-image" />
-      <h3 class="project-name">{{project.name}}</h3>
-      <p class="project-description">{{project.description}}</p>
+  <div class="filter-popup" *ngIf="isPopupVisible">
+    <div class="filter-section">
+      <h3>Resources</h3>
+      <div class="filter-options">
+
+        <span
+          class="filter-option"
+          *ngFor="let resource of resources"
+          [ngClass]="{ 'active': isSelected(resource) }"
+          (click)="toggleTag(resource)"
+        >
+        {{ resource }}
+      </span>
+
+      </div>
     </div>
+
+    <div class="filter-section">
+      <h3>Technologies</h3>
+      <div class="filter-options">
+
+        <span
+          class="filter-option"
+          *ngFor="let technology of technologies"
+          [ngClass]="{ 'active': isSelected(technology) }"
+          (click)="toggleTag(technology)"
+        >
+        {{ technology }}
+      </span>
+      </div>
+    </div>
+
   </div>
-</section>
+
+  <section class="projects-section">
+    <div class="projects-grid">
+      <div class="project-card" *ngFor="let project of filteredProjects">
+        <img src="{{project.image}}" alt="{{project.name}}" class="project-image"/>
+        <h3 class="project-name">{{ project.name }}</h3>
+        <p class="project-description">{{ project.description }}</p>
+      </div>
+    </div>
+  </section>
 </div>
