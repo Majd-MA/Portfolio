@@ -1,3 +1,12 @@
+//body
+.achieve-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+
+}
+//Text-Animation
 .input-wrapper {
   display: flex;
   font-family: monospace;
@@ -1208,5 +1217,71 @@
 }
 .input-wrapper > input:focus + .placeholder, .input-wrapper > input:active + .placeholder {
   display: none;
+}
+
+//Achievements
+.achievements-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 70%;
+  padding-bottom: 40px;
+}
+
+.achievement-card {
+  display: flex;
+  //background-color: #f9f9f9;
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  //overflow: hidden;
+}
+
+.achievement-image {
+  max-width: 400px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.achievement-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.achievement-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.achievement-info h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+.achievement-info h4 {
+  margin: 10px 0 15px;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.achievement-info p {
+  margin-bottom: 15px;
+  font-size: 1em;
+  color: #777;
+}
+
+.achievement-info a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.achievement-info a:hover {
+  text-decoration: underline;
 }
 

@@ -1,3 +1,20 @@
-<div class="input-wrapper">
-  <span class="placeholder"></span>
+<div class="achieve-body">
+  <div class="input-wrapper">
+    <span class="placeholder"></span>
+  </div>
+
+  <div class="achievements-container">
+    <div class="achievement-card" *ngFor="let achievement of achievements">
+      <div class="achievement-image">
+        <img src="{{ achievement.image }}" alt="Achievement Image">
+      </div>
+      <div class="achievement-info">
+        <h2>{{ achievement.name }}</h2>
+        <h4>{{ achievement.source }}</h4>
+        <p>{{ achievement.description }}</p>
+        <a [href]="achievement.link" target="_blank">View Certificate</a>
+      </div>
+    </div>
+  </div>
+
 </div>
