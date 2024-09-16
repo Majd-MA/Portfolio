@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgOptimizedImage, provideCloudinaryLoader} from "@angular/common";
+import {HttpClient} from "@angular/common/http";
+import {PageService} from "../page.service";
 
 @Component({
   selector: 'app-home',
@@ -13,6 +15,13 @@ import {NgOptimizedImage, provideCloudinaryLoader} from "@angular/common";
     provideCloudinaryLoader('https://res.cloudinary.com/dxgro47nn')
   ]
 })
-export class HomeComponent {
-  imageURL = "/v1726140911/_MG_9251-removebg-resized-croped_adfdqn.png"
+export class HomeComponent implements OnInit {
+
+  constructor(private pageService:PageService) {}
+
+  imageURL = "/v1726140911/_MG_9251-removebg-resized-croped_adfdqn.png";
+
+  ngOnInit(): void {
+    this.pageService.setInitIndex(0);
+  }
 }

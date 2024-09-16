@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgClass, NgForOf, NgIf, NgOptimizedImage, NgStyle} from "@angular/common";
 import {MatIconModule} from '@angular/material/icon'
+import {PageService} from "../page.service";
 
 @Component({
   selector: 'app-projects',
@@ -16,6 +17,9 @@ import {MatIconModule} from '@angular/material/icon'
   styleUrl: './projects.component.less'
 })
 export class ProjectsComponent implements OnInit {
+
+  constructor(private pageService: PageService) {}
+
   projects = [
     {
       name: "Work By Hour",
@@ -54,7 +58,6 @@ export class ProjectsComponent implements OnInit {
   showTip = true;
   filteredProjects = this.projects;
 
-
   // Example categories
   resources = ['NestJS', 'Laravel', 'ThreeJS', 'Unity', 'MongoDB', "MySQL", "React"];
   technologies = ['TypeScript', 'JavaScript', "PHP", 'Python', "C#", "ProLog", "HTML", "CSS"];
@@ -63,6 +66,8 @@ export class ProjectsComponent implements OnInit {
     setTimeout(() => {
       this.showTip = false;
     }, 3000);
+
+      this.pageService.setInitIndex(1);
   }
 
   hideTip() {

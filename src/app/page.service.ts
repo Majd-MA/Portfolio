@@ -13,6 +13,9 @@ export class PageService {
   currentPage$ = this.currentPage.asObservable();
   constructor(private router: Router) {}
 
+  setInitIndex(index: number): void {
+    this.currentPage.next(index);
+  }
   // Navigate to a specific page by its index
   navigateToPage(index: number) {
     if (index >= 0 && index < this.pages.length) {
