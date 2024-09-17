@@ -1,0 +1,44 @@
+<div class="project-details" *ngIf="project">
+  <!-- Introduction -->
+  <section class="introduction">
+    <h2>{{ project.title }}</h2>
+    <p>{{ project.introduction }}</p>
+  </section>
+
+  <!-- Demo (Optional) -->
+  <section *ngIf="project.demoUrl" class="demo">
+    <h3>Demo</h3>
+    <video controls>
+      <source [src]="project.demoUrl" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- Image Slider (Optional) -->
+  <section *ngIf="project.images.length > 0" class="image-slider">
+    <h3>Image Gallery</h3>
+    <div class="slider">
+      <img *ngFor="let image of project.images; let i = index" [src]="image" alt="Project Image" [class.active]="i === 0"/>
+    </div>
+  </section>
+
+  <!-- Overview and Description -->
+  <section class="overview">
+    <h3>Overview</h3>
+    <p>{{ project.overview }}</p>
+  </section>
+
+  <!-- Challenges -->
+  <section class="challenges">
+    <h3>Challenges</h3>
+    <p>{{ project.challenges }}</p>
+  </section>
+
+  <!-- Technologies Used -->
+  <section class="technologies">
+    <h3>Technologies Used</h3>
+    <ul>
+      <li *ngFor="let tech of project.technologies">{{ tech }}</li>
+    </ul>
+  </section>
+</div>
