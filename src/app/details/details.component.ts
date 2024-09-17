@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {ProjectsService} from "../projects/projects.service";
-import {ActivatedRoute, Route, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-details',

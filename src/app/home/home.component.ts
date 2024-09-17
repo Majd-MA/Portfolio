@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {NgOptimizedImage, provideCloudinaryLoader} from "@angular/common";
-import {HttpClient} from "@angular/common/http";
 import {PageService} from "../page.service";
 
 @Component({

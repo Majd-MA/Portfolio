@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {NgClass, NgForOf, NgIf, NgOptimizedImage, NgStyle} from "@angular/common";
-import {MatIconModule} from '@angular/material/icon'
 import {PageService} from "../page.service";
 import {ProjectsService} from "./projects.service";
 import {RouterLink} from "@angular/router";

@@ -1,5 +1,5 @@
-import {Component, HostListener, Inject} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, HostListener} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
 import {NgOptimizedImage} from "@angular/common";
 import {DotsComponent} from "./dots/dots.component";
 import {PageService} from "./page.service";

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForOf} from "@angular/common";
 import {PageService} from "../page.service";
 
