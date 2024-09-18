@@ -1,5 +1,7 @@
 @charset "UTF-8";
 @primary-color: #f0ad4e;
+@title_font: "Poppins", sans-serif;
+@paragraph_font: "Helvetica", sans-serif;
 
 .content-container {
   display: flex;
@@ -10,12 +12,11 @@
 /* Filter Bar */
 .filter {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   height: 50vh;
   width: 100%;
   position: relative;
-  padding: 10px;
 }
 
 .filter-bar {
@@ -28,6 +29,7 @@
   height: 60px;
   max-height: fit-content;
   overflow: auto;
+  margin-top: 65px;
 }
 
 .tag-container {
@@ -48,6 +50,8 @@
   color: #999;
   display: flex;
   align-items: center;
+  margin-top: 74px;
+
 }
 
 #filter_icon {
@@ -75,7 +79,7 @@
 /* Pop-up for filter options */
 .filter-popup {
   position: absolute;
-  top: 247px; /* Adjust to match your filter bar */
+  top: 140px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -89,6 +93,10 @@
 
 .filter-section {
   margin-bottom: 20px;
+
+  h3{
+    font-family: @title_font;
+  }
 }
 
 .filter-section h3 {
@@ -102,6 +110,7 @@
 
 .filter-option {
   background-color: #f0f0f0;
+  font-family: @paragraph_font;
   padding: 5px 10px;
   margin: 5px;
   border-radius: 15px;
@@ -110,7 +119,7 @@
 
 .filter-tooltip {
   position: absolute;
-  top: 120px;
+  top: 150px;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(128, 128, 128, 0.2);
@@ -122,13 +131,15 @@
   z-index: 200;
   white-space: nowrap;
   animation: fadeIn 0.5s ease-in-out;
+  font-family: @paragraph_font;
 }
 
 .filter-tooltip::after {
   content: '';
   position: absolute;
-  bottom: -20px;
-  left: 50%;
+  bottom: 45px;
+  rotate: 180deg;
+  left: 45%;
   transform: translateX(-50%);
   border-width: 5px;
   border-style: solid;
@@ -139,7 +150,6 @@
   margin-left: 10px;
   cursor: pointer;
   font-weight: bold;
-  //color: #f1f1f1;
   text-align: center;
 }
 
@@ -162,7 +172,6 @@
 //Projects-Section
 @highlight-color: dimgrey;
 .projects-section {
-  padding: 50px 20px;
 
   .section-title {
     text-align: center;
@@ -182,9 +191,10 @@
     .project-card {
       border-radius: 10px;
       overflow: hidden;
-      max-width: 300px;
+      max-width: 500px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
+
 
       a {
         text-decoration: none;
@@ -204,12 +214,15 @@
       .project-name {
         font-size: 1.5rem;
         margin: 15px;
+        font-family: @title_font;
       }
 
       .project-description {
-        font-size: 1rem;
+        font-size: 1em;
         margin: 15px;
         overflow: scroll;
+        font-family: @paragraph_font;
+        color: #3c3f41;
       }
     }
   }
@@ -235,7 +248,8 @@
 }
 
 .filter-option.active {
-  background-color: #ddd; /* Green for selected */
+  background-color: rgba(115, 118, 121, 0.87);
+  color: white;
 }
 
 

@@ -25,17 +25,19 @@ export class DetailsComponent implements OnInit{
   currentImageIndex = 0;
 
   ngOnInit(): void {
+    const projectId = this.route.snapshot.paramMap.get('id');
+    if (projectId)
+      this.project = this.projectsService.getProjectById(projectId);
+
+    if (!this.project) {
+      //TODO: Add a 404 page
+    }
+
+    if(this.project.images)
     setInterval(() => {
       this.showNextImage();
     }, 3000);
 
-    const projectId = this.route.snapshot.paramMap.get('id');
-    if (projectId)
-    this.project = this.projectsService.getProjectById(projectId);
-
-    if (!this.project) {
-
-    }
   }
 
   showNextImage() {

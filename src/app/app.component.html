@@ -3,14 +3,9 @@
 <!--    <p id="upper_title">Majd MA</p>-->
 <!--  </div>-->
 
-
-<!--</div>-->
-<!--<app-arrow direction="left"></app-arrow>-->
-<!--<app-arrow direction="right"></app-arrow>-->
-
 <router-outlet></router-outlet>
 
-<app-dots></app-dots>
+<app-dots *ngIf="!this.check(this.router.url)" ></app-dots>
 
 
 

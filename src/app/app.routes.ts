@@ -11,7 +11,7 @@ export const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
   { path: 'achievements', component: AchievementsComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'projects/:id', component: DetailsComponent },
+  { path: 'project/:id', component: DetailsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },  // Default to home
   { path: '**', redirectTo: '/home' }  // Fallback
 ];

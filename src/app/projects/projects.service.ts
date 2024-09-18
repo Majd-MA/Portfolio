@@ -58,7 +58,7 @@ export class ProjectsService {
       title: 'Satellite Simulation',
       thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726364210/istockphoto-1208005312-612x612_hkrxiw-removebg-preview_nemcx4.png",
       introduction: 'This project models a satellite’s elliptical motion, including its orbital transitions and the gravitational influences of planets. It provides real-time data on the satellite’s location and speed.',
-      // demoUrl: 'assets/demo1.mp4',
+      demoUrl: 'https://gitlab.com/the-teachers-public/satellite-simulation-the-teachers/-/raw/master/Photos/Satellite%20Simulation.mp4',
       // images: ['assets/img1.jpg', 'assets/img2.jpg'],
       overview: 'Detailed description of the project...',
       challenges: 'Challenges faced...',

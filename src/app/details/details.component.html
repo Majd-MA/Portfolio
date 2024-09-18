@@ -15,7 +15,7 @@
   </section>
 
   <!-- Image Slider (Optional) -->
-  <section *ngIf="project.images.length > 0" class="image-slider">
+  <section *ngIf="project.images && project.images.length > 0" class="image-slider">
     <h3>Image Gallery</h3>
     <div class="slider">
       <img *ngFor="let image of project.images; let i = index" [src]="image" alt="Project Image" [class.active]="i === 0"/>

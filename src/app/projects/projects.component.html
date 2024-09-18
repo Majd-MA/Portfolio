@@ -11,7 +11,7 @@
 
       <div class="filter-tooltip" *ngIf="showTip">
 
-        <span class="close-tip" (click)="hideTip()">Helps you filter the projects!</span>
+        <span class="close-tip" (click)="hideTip()">Helps you filter projects</span>
       </div>
 
       <div *ngIf="selectedTags.length > 0" class="tag-container">
@@ -62,7 +62,7 @@
   <section class="projects-section">
     <div class="projects-grid">
       <div class="project-card" *ngFor="let project of filteredProjects">
-        <a [routerLink]="['/projects', project.id]" target="_blank">
+        <a [routerLink]="['/project', project.id]" target="_blank">
           <img src="{{project.thumbnail}}" alt="{{project.title}}" class="project-image"/>
           <h3 class="project-name">{{ project.title }}</h3>
           <p class="project-description">{{ project.introduction }}</p>

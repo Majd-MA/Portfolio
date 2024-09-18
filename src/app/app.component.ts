@@ -1,26 +1,32 @@
-import {Component, HostListener} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
-import {NgOptimizedImage} from "@angular/common";
+import {Component, OnInit} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
+import {NgIf, NgOptimizedImage} from "@angular/common";
 import {DotsComponent} from "./dots/dots.component";
-import {PageService} from "./page.service";
+import {ProjectsService} from "./projects/projects.service";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgOptimizedImage, DotsComponent],
+  imports: [RouterOutlet, NgOptimizedImage, DotsComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.less',
 })
-export class AppComponent {
-  constructor(private pageService: PageService) {}
+export class AppComponent implements OnInit{
+  projectsUrls:string[] = ['/'];
+  constructor(
+    protected router: Router,
+    protected projectsService: ProjectsService,
+    ) {}
 
-  @HostListener('document:keydown', ['$event'])
-  handleKeydown(event: KeyboardEvent) {
-    if (event.key === 'ArrowRight') {
-      this.pageService.nextPage();
-    } else if (event.key === 'ArrowLeft') {
-      this.pageService.previousPage();
-    }
+  ngOnInit(): void {
+    let projects = this.projectsService.getAllProjects();
+
+    projects.map(project => {
+      this.projectsUrls.push('/project/' + project.id);
+    })
   }
 
+  check(pageUrl: string){
+    return this.projectsUrls?.some((url)=>url === pageUrl);
+  }
 }
