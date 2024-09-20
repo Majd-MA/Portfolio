@@ -90,6 +90,7 @@
 .profile-image {
   border-radius: 20%;
   object-fit: cover;
+  object-position: 50% 41.5% ;
   filter: grayscale(100%);
   transition: filter 0.9s ease;
   opacity: 0;
@@ -102,14 +103,61 @@
 
 .intro-tip{
   position: fixed;
-  top: 69%;
   left: 50%;
   z-index: 99;
   opacity: 0;
   transform: translateX(-50%);
   animation: fadeIn 1.6s forwards;
+
+  img{
+    width: 70vw;
+    object-fit: cover;
+  }
+
 }
 
+@media only screen and (min-width: 1536px) and (max-width: 1920px) {
+  .intro-tip {
+    top: 68.7%;
+  }
+}
+
+/* Styles for 1366px width */
+@media only screen and (min-width: 0px) and (max-width: 1400px) {
+  .intro-tip {
+    top: 66.5%;
+  }
+}
+
+/* Styles for 1536px width */
+@media only screen and (min-width: 1441px) and (max-width: 1536px) {
+  .intro-tip {
+    top: 67.8%;
+  }
+}
+
+/* Styles for 1440px width */
+@media only screen and (min-width: 1400px) and (max-width: 1440px) {
+  .intro-tip {
+    top: 71%;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .intro-tip {
+    img{
+      height: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 1086.400px) {
+  .intro-tip {
+    img {
+      height: 0;
+    }
+  }
+}
 @keyframes fadeIn {
   from {
     opacity: 0;

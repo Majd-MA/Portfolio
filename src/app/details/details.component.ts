@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {ProjectsService} from "../projects/projects.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-details',
@@ -19,7 +19,8 @@ export class DetailsComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
-    private projectsService: ProjectsService // Service to fetch project details
+    private projectsService: ProjectsService,
+    private router: Router
   ) {}
 
   currentImageIndex = 0;
@@ -30,7 +31,7 @@ export class DetailsComponent implements OnInit{
       this.project = this.projectsService.getProjectById(projectId);
 
     if (!this.project) {
-      //TODO: Add a 404 page
+      this.router.navigate(['/404']);
     }
 
     if(this.project.images)
@@ -45,5 +46,9 @@ export class DetailsComponent implements OnInit{
     images[this.currentImageIndex].classList.remove('active');
     this.currentImageIndex = (this.currentImageIndex + 1) % images.length;
     images[this.currentImageIndex].classList.add('active');
+  }
+
+  goBack(){
+    this.router.navigate(['/projects']);
   }
 }

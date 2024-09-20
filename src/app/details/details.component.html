@@ -1,8 +1,15 @@
+<!--<a class="back">-->
+<!--  <img src="https://res.cloudinary.com/dxgro47nn/image/upload/v1726815646/arrow_vahrud.png">-->
+<!--</a>-->
+<button class="back-button" (click)="goBack()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+</button>
+
 <div class="project-details" *ngIf="project">
   <!-- Introduction -->
   <section class="introduction">
     <h2>{{ project.title }}</h2>
-    <p>{{ project.introduction }}</p>
+    <p class="section-body" [innerHTML]="project.introduction "></p>
   </section>
 
   <!-- Demo (Optional) -->
@@ -16,22 +23,22 @@
 
   <!-- Image Slider (Optional) -->
   <section *ngIf="project.images && project.images.length > 0" class="image-slider">
-    <h3>Image Gallery</h3>
+    <h3>Media Library</h3>
     <div class="slider">
       <img *ngFor="let image of project.images; let i = index" [src]="image" alt="Project Image" [class.active]="i === 0"/>
     </div>
   </section>
 
-  <!-- Overview and Description -->
-  <section class="overview">
-    <h3>Overview</h3>
-    <p>{{ project.overview }}</p>
+
+  <section class="overview" *ngFor="let section of project.overview">
+    <h3>{{section.title}}</h3>
+    <p class="section-body" [innerHTML]="section.body"></p>
   </section>
 
   <!-- Challenges -->
   <section class="challenges">
     <h3>Challenges</h3>
-    <p>{{ project.challenges }}</p>
+    <p class="section-body" [innerHTML]="project.challenges"></p>
   </section>
 
   <!-- Technologies Used -->

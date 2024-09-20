@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
     let projects = this.projectsService.getAllProjects();
 
     projects.map(project => {
-      this.projectsUrls.push('/project/' + project.id);
+      this.projectsUrls.push('/projects/' + project.id);
     })
   }
 

@@ -25,15 +25,15 @@ export class ProjectsComponent implements OnInit {
     private projectsService: ProjectsService
     ) {}
 
-  projects: { id: string;title: string;thumbnail: string;introduction: string;overview: string;challenges: string;technologies: string[];}[] | undefined;
+  projects: { id: string;title: string;thumbnail: string;introduction: string;overview: any;challenges: string;technologies: string[];}[] | undefined;
   isPopupVisible = false;
   selectedTags: string[] = [];
   showTip = true;
   filteredProjects :any | undefined;
 
   // Example categories
-  resources = ['NestJS', 'Laravel', 'ThreeJS', 'Unity', 'MongoDB', "MySQL", "React"];
-  technologies = ['TypeScript', 'JavaScript', "PHP", 'Python', "C#", "ProLog", "HTML", "CSS"];
+  resources = ['NestJS', 'Laravel', 'ThreeJS', 'Unity', 'MongoDB', "MySQL", "React", "ChromaDB"];
+  technologies = ['TypeScript', 'JavaScript', "PHP", 'Python', "C#", "HTML", "CSS"];
 
   ngOnInit() {
     setTimeout(() => {

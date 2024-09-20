@@ -34,6 +34,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.hoverSubscription = this.hoverService.hover$.subscribe(isHovered => {
       this.isHovered = isHovered;
     });
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+
+    console.log(`Screen width: ${screenWidth}px, Screen height: ${screenHeight}px`);
   }
 
   ngOnDestroy() {
