@@ -11,6 +11,7 @@ export class ProjectsService {
       thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/t_WBH-filled/v1726236276/wbh_logo-01_xqpln0.png",
       brief: 'Employment application for free-lancing jobs',
       introduction: 'Employment application for free-lancing jobs',
+      prototype:"https://embed.figma.com/proto/8LaxHS1iCLffQlfBZQCTOv/Work-By-Hour?node-id=24-5831&node-type=canvas&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=24%3A5831&embed-host=share",
       // demoUrl: 'assets/demo1.mp4',
       // images: ['assets/img1.jpg', 'assets/img2.jpg'],
       overview: [
@@ -27,8 +28,8 @@ export class ProjectsService {
       id: 'finou',
       title: 'Finou',
       thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726808881/Finou_j46bzz.png",
-      brief: 'Employment application for Graphic Designers',
-      introduction: 'Employment application for Graphic Designers',
+      brief: 'A social platform for designers to enhance skills, showcase portfolios, and connect with companies through contests and job opportunities.',
+      introduction: 'This mobile app is designed for <b>designers</b> from various specialties—such as logo creation, video editing, and more—providing a comprehensive platform for building portfolios, participating in contests, and connecting with companies for job opportunities. The app’s features include real-time communication, automated contests, and advanced image handling, making it an essential tool for designers to showcase their skills and enhance their career growth.',
       demoUrl: 'https://res.cloudinary.com/dxgro47nn/video/upload/v1726806776/Abd_Facebook_gsipb4.mp4',
       images: [
         'https://res.cloudinary.com/dxgro47nn/image/upload/v1726806150/IMG_4973_jwaerd.jpg',
@@ -42,30 +43,32 @@ export class ProjectsService {
       ],
       overview: [
         {
-          title: 'Section Title',
-          body:"Section Body"
-        }
-      ],
-      challenges: 'Challenges faced...',
-      technologies: ['NestJS', 'TypeScript', "MySQL", "React"],
-    },
-
-    {
-      id: 'leaf',
-      title: 'Leaf',
-      thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726809009/leaves-green-icon-isolated-on-white-background-free-vector_ea1ffo.png",
-      brief: 'Pharmacy management system',
-      introduction: 'Pharmacy management system',
-      // demoUrl: 'assets/demo1.mp4',
-      // images: ['assets/img1.jpg', 'assets/img2.jpg'],
-      overview: [
+          title: 'Key Benefits',
+          body:"<b>Portfolio Management:</b> Designers can build professional portfolios to display their work, helping them gain visibility and increase their chances of being hired.<br><br>" +
+               "<b>Skill Development through Contests:</b> Automated and custom contests challenge designers to improve their skills. Winners are selected based on a voting system, rewarding beauty and relevance to the contest’s description.<br><br>" +
+               "<b>Career Opportunities:</b> The <b>Hire section</b> allows designers to promote their skills, while companies can post job listings and host private contests to find the best talent.<br><br>" +
+               "<b>Experience Points and Leveling:</b> Contest winners gain experience points, raising their profile level, which serves as a measure of their expertise.<br><br>" +
+               "<b>Real-Time Interaction:</b> The built-in chat system enables seamless communication between designers and companies, fostering collaboration and quick responses.<br><br>" },
         {
-          title: 'Section Title',
-          body:"Section Body"
-        }
+          title: 'Main Features',
+          body: '<b>Designer Portfolio Management:</b> Designers can create portfolios to showcase their work and expertise, making it easier for companies to find the right talent.<br><br>' +
+                '<b>Contest System:</b> A combination of automated and custom contests gives designers the opportunity to compete, with winners chosen through a transparent voting system.<br><br>' +
+                '<b>Voting System:</b> The community votes on the best designs, with winners selected based on beauty and alignment with the contest description.<br><br>' +
+                '<b>Hire Section:</b> Designers can post their availability, while companies can create profiles, post jobs, and organize private contests to evaluate applicants.<br><br>' +
+                '<b>Real-Time Communication:</b> Designers and companies can communicate instantly, with middleware ensuring security and proper management of chats.<br><br>' +
+                '<b>Statistics Dashboard:</b> Admins and designers have access to performance insights, tracking skill development, contest performance, and more.<br><br>'
+        },
+        {
+          title: 'Technologies Used',
+          body: '<b>Real-Time Communication:</b> Socket.io for real-time messaging, integrated with security middleware to ensure safe interactions.<br><br>' +
+                '<b>Cloudinary:</b> Integrated to manage user-uploaded images, including AVIF compression, lazy loading, and streamlined image handling for optimal app performance.'
+        },
+
       ],
-      challenges: 'Challenges faced...',
-      technologies: ['Laravel', 'PHP', "MySQL"],
+      challenges: '<b>➖ Scalability:</b> Managing the app\'s large volume of user-uploaded images, portfolios, and contests was streamlined using Cloudinary for efficient image handling and AVIF compression.<br><br>' +
+                  '<b>➖ Real-Time Communication: </b> Implementing a real-time chat system using Socket.io, with middleware ensuring security and effective management of communication between designers and companies.<br><br>' +
+                  '<b>➖ Performance:</b>  Lazy loading and image compression improved the app’s performance, making it scalable to accommodate a growing user base without sacrificing speed.',
+      technologies: ['NestJS', 'TypeScript', "MySQL", "React", "Socket.io","Firebase"],
     },
 
     {
@@ -104,6 +107,56 @@ export class ProjectsService {
       ],
       challenges: 'A key challenge was designing an effective heuristic for the A-star algorithm. This required deep knowledge of the game and strategic thinking to create a heuristic that positively impacted the algorithm’s performance. Through critical thinking and research, a highly efficient heuristic was developed.',
       technologies: ['Unity', 'C#'],
+    },
+
+    {
+      id: 'QSmart',
+      title: 'QSmart',
+      thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726800756/thumbnail_sntu4w.png",
+      brief: 'A high-performance Information Retrieval system designed for Q&A datasets, delivering fast and accurate document matching and query ranking.',
+      introduction: 'The project focuses on building an efficient Information Retrieval (IR) system using two datasets:<br><b>Antique</b> and <b>Lotte/Science</b>. The aim is to retrieve relevant documents for user queries and rank them based on relevance,' +
+        ' utilizing advanced techniques such as word embeddings and vector space models for optimal performance.<br><br> Used Datasets Page <a href="https://ir-datasets.com/" target="_blank"><img src="https://res.cloudinary.com/dxgro47nn/image/upload/v1726801131/OIP_ao2utb.jpg" height="15" width="15"></a>',
+      // demoUrl: 'assets/demo1.mp4',
+      images: [
+        'https://res.cloudinary.com/dxgro47nn/image/upload/v1726803447/2_o1my3q.png',
+        'https://res.cloudinary.com/dxgro47nn/image/upload/v1726804078/2-r_ngkfig.png',
+        'https://res.cloudinary.com/dxgro47nn/image/upload/v1726803031/1_qub4c3.png',
+        'https://res.cloudinary.com/dxgro47nn/image/upload/v1726804745/Recall_one6nl.png',
+        'https://res.cloudinary.com/dxgro47nn/image/upload/v1726804743/precision_10_iegx18.png'
+
+      ],
+      overview: [
+        {
+          title: 'Datasets',
+          body:"<b>Antique Dataset:</b> A collection of general domain questions from Yahoo! Answers, used to match user queries with relevant answers.<br>" +
+            "<b>Lotte/Science Dataset:</b> A scientific dataset designed to train models for answering domain-specific queries, with a focus on scientific information retrieval."
+        },
+        {
+          title: 'Text Processing',
+          body: '<b>Lowercasing, tokenization, Regex:</b> Standardized the text for further analysis.<br>' +
+            '<b>Part of Speech (POS) tagging, lemmatization, and stemming:</b>  Processed words to their root form, improving the system’s ability to recognize similar terms across documents.<br>' +
+            '<b>Stop word removal:</b> Eliminated common, irrelevant words to focus on meaningful content.'
+        },
+        {
+          title: 'Data Representation',
+          body: 'The system utilized a <b>TF-IDF Vector Space Model</b>, allowing for efficient representation of document-term relationships. This model significantly enhanced matching and ranking speed and accuracy, as well as query refinement. The processed queries were used to generate suggestions for users, improving both the relevance and interactivity of the search system.'
+        },
+        {
+          title: 'Word Embedding Models',
+          body: 'Two word embedding models were implemented to improve document matching:<br><br>' +
+            '<b>- Word2Vector:</b> A word embedding model that computes the average vector for tokens within documents.<br>' +
+            '<b>- Hugging Face (Sentence Transformers):</b> This model, specialized for Q&A questions, significantly outperformed Word2Vector, providing highly accurate results due to its focus on sentence-level embeddings. This proved particularly useful for the Q&A datasets, resulting in substantial gains in system performance.'
+        },
+        {
+          title: 'Query Matching and Ranking',
+          body: 'Queries were matched to documents using:<br><br>' +
+            '<b>Cosine Similarity:</b> Measured the similarity between query and document vectors.<br><br>' +
+            '<b>Length Normalization:</b> Adjusted document importance based on word count, balancing relevance across shorter and longer documents.<br><br>' +
+            'The combination of these methods with word embeddings and vector space ensured fast and accurate results.'
+        },
+      ],
+      challenges: 'Achieving high <b>MAP</b> (Mean Average Precision) and <b>MRR</b> (Mean Reciprocal Rank) values was one of the main challenges. To overcome this, advanced technologies like word embedding models and vector spaces were utilized. The development of a specialized word embedding model (Sentence Transformers) tailored for Q&A datasets led to significant improvements in MAP and MRR scores.',
+      technologies: ['NestJS','TypeScript','Python','ChromaDB','FastAPI'],
     },
 
     {
@@ -160,54 +213,41 @@ export class ProjectsService {
     },
 
     {
-      id: 'QSmart',
-      title: 'QSmart',
-      thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726800756/thumbnail_sntu4w.png",
-      brief: 'A high-performance Information Retrieval system designed for Q&A datasets, delivering fast and accurate document matching and query ranking.',
-      introduction: 'The project focuses on building an efficient Information Retrieval (IR) system using two datasets:<br><b>Antique</b> and <b>Lotte/Science</b>. The aim is to retrieve relevant documents for user queries and rank them based on relevance,' +
-        ' utilizing advanced techniques such as word embeddings and vector space models for optimal performance.<br><br> Used Datasets Page <a href="https://ir-datasets.com/" target="_blank"><img src="https://res.cloudinary.com/dxgro47nn/image/upload/v1726801131/OIP_ao2utb.jpg" height="15" width="15"></a>',
-      // demoUrl: 'assets/demo1.mp4',
-      images: [
-        'https://res.cloudinary.com/dxgro47nn/image/upload/v1726803447/2_o1my3q.png',
-        'https://res.cloudinary.com/dxgro47nn/image/upload/v1726804078/2-r_ngkfig.png',
-        'https://res.cloudinary.com/dxgro47nn/image/upload/v1726803031/1_qub4c3.png',
-        'https://res.cloudinary.com/dxgro47nn/image/upload/v1726804745/Recall_one6nl.png',
-        'https://res.cloudinary.com/dxgro47nn/image/upload/v1726804743/precision_10_iegx18.png'
-
-      ],
+      id: 'leaf',
+      title: 'Leaf',
+      thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726809009/leaves-green-icon-isolated-on-white-background-free-vector_ea1ffo.png",
+      brief: 'Scalable pharmacy management system built with Laravel and Flutter, featuring advanced search, real-time monitoring, and automated reports.',
+      introduction: 'This project involved building a comprehensive Pharmacy Management System aimed at streamlining the daily operations of a pharmacy, from inventory management to customer interactions. The system was designed to automate key processes, reduce the workload for pharmacists, and ensure efficiency in managing drug stocks, sales, and purchases.',
       overview: [
         {
-          title: 'Datasets',
-          body:"<b>Antique Dataset:</b> A collection of general domain questions from Yahoo! Answers, used to match user queries with relevant answers.<br>" +
-               "<b>Lotte/Science Dataset:</b> A scientific dataset designed to train models for answering domain-specific queries, with a focus on scientific information retrieval."
+          title: 'Project Requirements',
+          body:"<b>Backup System:</b>  Implemented a robust backup solution to ensure data integrity and recovery in case of failure.<br>" +
+            "<b>Advanced and Fast Search:</b> Developed an optimized search system for efficient querying of the drug inventory and sales data.<br>" +
+            "<b>Scalability:</b> Designed the system to handle increasing amounts of data and user interactions without sacrificing performance.<br>" +
+            "<b>Export to Excel:</b> Enabled the export of pharmacy and sales information to Excel reports for easy access and analysis.<br>" +
+            "<b>Real-Time Employee Monitoring:</b> Built a system to track employee activities and performance statistics in real time.<br>" +
+            "<b>Statistics Module:</b> Provided detailed insights into pharmacy operations, including sales trends, stock levels, and employee performance.<br>" +
+            "<b>Push Notifications:</b> Created a custom push notification system from scratch to alert users of low stock, expired drugs, and other important updates."
         },
         {
-          title: 'Text Processing',
-          body: '<b>Lowercasing, tokenization, Regex:</b> Standardized the text for further analysis.<br>' +
-                '<b>Part of Speech (POS) tagging, lemmatization, and stemming:</b>  Processed words to their root form, improving the system’s ability to recognize similar terms across documents.<br>' +
-                '<b>Stop word removal:</b> Eliminated common, irrelevant words to focus on meaningful content.'
+          title:'Technology Stack',
+          body: '<b>Backend:</b> Laravel (PHP) with Eloquent ORM for managing data models and database operations.<br>' +
+            '<b>Frontend:</b> Flutter (Dart) for building a responsive, mobile-friendly interface.<br>' +
+            '<b>Database:</b> MySQL for handling all data related to inventory, sales, employees, and notifications.'
         },
         {
-          title: 'Data Representation',
-          body: 'The system utilized a <b>TF-IDF Vector Space Model</b>, allowing for efficient representation of document-term relationships. This model significantly enhanced matching and ranking speed and accuracy, as well as query refinement. The processed queries were used to generate suggestions for users, improving both the relevance and interactivity of the search system.'
-        },
-        {
-          title: 'Word Embedding Models',
-          body: 'Two word embedding models were implemented to improve document matching:<br><br>' +
-            '<b>- Word2Vector:</b> A word embedding model that computes the average vector for tokens within documents.<br>' +
-            '<b>- Hugging Face (Sentence Transformers):</b> This model, specialized for Q&A questions, significantly outperformed Word2Vector, providing highly accurate results due to its focus on sentence-level embeddings. This proved particularly useful for the Q&A datasets, resulting in substantial gains in system performance.'
-        },
-        {
-          title: 'Query Matching and Ranking',
-          body: 'Queries were matched to documents using:<br><br>' +
-            '<b>Cosine Similarity:</b> Measured the similarity between query and document vectors.<br><br>' +
-            '<b>Length Normalization:</b> Adjusted document importance based on word count, balancing relevance across shorter and longer documents.<br><br>' +
-            'The combination of these methods with word embeddings and vector space ensured fast and accurate results.'
-        },
+          title: 'Features and Modules',
+          body: '<b>Inventory Management:</b> Automated tracking of stocks with real-time updates, alerts for low stock and expired products.<br>' +
+            '<b>Sales & Return Module:</b> Manage transactions, returns, and generate detailed invoices.<br>' +
+            '<b>User Management:</b> Admin can add employees, set permissions, and monitor login activities.<br>' +
+            '<b>Reports & Analytics:</b> Export sales and inventory data to Excel and provide detailed statistical insights.<br>' +
+            '<b>Real-Time Notifications:</b> Notify users of important pharmacy updates, such as low stock levels or expiring medications.<br>'
+
+        }
       ],
-      challenges: 'Achieving high <b>MAP</b> (Mean Average Precision) and <b>MRR</b> (Mean Reciprocal Rank) values was one of the main challenges. To overcome this, advanced technologies like word embedding models and vector spaces were utilized. The development of a specialized word embedding model (Sentence Transformers) tailored for Q&A datasets led to significant improvements in MAP and MRR scores.',
-      technologies: ['NestJS','TypeScript','Python','ChromaDB'],
+      technologies: ['Laravel', 'PHP', "MySQL"],
     },
+
 
   ];
 

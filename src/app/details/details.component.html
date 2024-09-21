@@ -12,6 +12,12 @@
     <p class="section-body" [innerHTML]="project.introduction "></p>
   </section>
 
+  <!-- prototype (Optional) -->
+  <section *ngIf="project.prototype" class="prototype">
+    <h3>Prototype</h3>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/8LaxHS1iCLffQlfBZQCTOv/Work-By-Hour?node-id=24-5831&node-type=canvas&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=24%3A5831&embed-host=share" allowfullscreen></iframe>
+  </section>
+
   <!-- Demo (Optional) -->
   <section *ngIf="project.demoUrl" class="demo">
     <h3>Demo</h3>
@@ -36,7 +42,7 @@
   </section>
 
   <!-- Challenges -->
-  <section class="challenges">
+  <section class="challenges" *ngIf="project.challenges">
     <h3>Challenges</h3>
     <p class="section-body" [innerHTML]="project.challenges"></p>
   </section>
