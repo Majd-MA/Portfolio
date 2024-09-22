@@ -1,37 +1,39 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {PageService} from "../page.service";
-import {HoverService} from "./hover.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dots',
   templateUrl: './dots.component.html',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   styleUrls: ['./dots.component.less']
 })
 export class DotsComponent implements OnInit {
   currentPage: number | undefined;
   totalPages: number | undefined;
+  activate: boolean = false;
 
   constructor(
+    protected router: Router,
     private pageService: PageService,
-    private hoverService: HoverService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.totalPages = this.pageService.getTotalPages();  // Get total pages
 
-    // Subscribe to current page changes
     this.pageService.currentPage$.subscribe(page => {
       this.currentPage = page;
     });
   }
 
-  // When a dot is clicked, change the current page
   changePage(page: number) {
+    this.activate = false;
     this.pageService.navigateToPage(page);
   }
 
@@ -43,7 +45,10 @@ export class DotsComponent implements OnInit {
       this.pageService.previousPage();
     }
   }
-  onHover(isHovered: boolean) {
-    this.hoverService.notifyHover(isHovered);
+
+  onHover() {
+    if (this.router.url === '/home')
+      this.activate = true;
   }
+
 }

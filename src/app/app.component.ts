@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
-import {NgIf, NgOptimizedImage} from "@angular/common";
+import {NgIf, NgOptimizedImage, provideCloudinaryLoader} from "@angular/common";
 import {DotsComponent} from "./dots/dots.component";
 import {ProjectsService} from "./projects/projects.service";
 
@@ -10,6 +10,9 @@ import {ProjectsService} from "./projects/projects.service";
   imports: [RouterOutlet, NgOptimizedImage, DotsComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.less',
+  providers:[
+    provideCloudinaryLoader('https://res.cloudinary.com/dxgro47nn')
+  ]
 })
 export class AppComponent implements OnInit{
   projectsUrls:string[] = ['/'];

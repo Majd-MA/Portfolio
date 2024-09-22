@@ -1,7 +1,13 @@
-<div class="dots" (mouseenter)="onHover(true)" (mouseleave)="onHover(false)">
-  <div *ngFor="let page of [].constructor(totalPages); let i = index"
-       class="dot"
-       [class.active]="i === currentPage"
-       (click)="changePage(i)">
+<div class="container">
+  <img *ngIf="activate" src="https://res.cloudinary.com/dxgro47nn/image/upload/v1726625140/directions_uukjpy.png" alt=" "/>
+
+  <div class="dots" (mouseenter)="onHover()" (mouseleave)="this.activate=false">
+    <div *ngFor="let page of [].constructor(totalPages); let i = index"
+         class="dot"
+         [class.active]="i === currentPage"
+         (click)="changePage(i)">
+    </div>
   </div>
 </div>
+
+

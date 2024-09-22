@@ -9,14 +9,12 @@ export class PageService {
   private pages = ['home', 'projects', 'achievements', 'about'];  // Define the page routes
   private currentPage = new BehaviorSubject<number>(0);
 
-  // Observable for current page
   currentPage$ = this.currentPage.asObservable();
   constructor(private router: Router) {}
 
   setInitIndex(index: number): void {
     this.currentPage.next(index);
   }
-  // Navigate to a specific page by its index
   navigateToPage(index: number) {
     if (index >= 0 && index < this.pages.length) {
       this.currentPage.next(index);
@@ -24,7 +22,6 @@ export class PageService {
     }
   }
 
-  // Navigate to the next page
   nextPage() {
     const newIndex = this.currentPage.getValue() + 1;
     if (newIndex < this.pages.length) {
@@ -35,7 +32,6 @@ export class PageService {
     }
   }
 
-  // Navigate to the previous page
   previousPage() {
     const newIndex = this.currentPage.getValue() - 1;
     if (newIndex >= 0) {

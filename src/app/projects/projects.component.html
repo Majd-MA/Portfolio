@@ -26,33 +26,50 @@
   </div>
 
   <div class="filter-popup" *ngIf="isPopupVisible">
+
     <div class="filter-section">
-      <h3>Resources</h3>
+      <h3>Framework</h3>
       <div class="filter-options">
 
         <span
           class="filter-option"
-          *ngFor="let resource of resources"
-          [ngClass]="{ 'active': isSelected(resource) }"
-          (click)="toggleTag(resource)"
+          *ngFor="let framework of frameworks"
+          [ngClass]="{ 'active': isSelected(framework) }"
+          (click)="toggleTag(framework)"
         >
-        {{ resource }}
+        {{ framework }}
       </span>
 
       </div>
     </div>
 
     <div class="filter-section">
-      <h3>Technologies</h3>
+      <h3>Programming Language</h3>
       <div class="filter-options">
 
         <span
           class="filter-option"
-          *ngFor="let technology of technologies"
-          [ngClass]="{ 'active': isSelected(technology) }"
-          (click)="toggleTag(technology)"
+          *ngFor="let programmingLanguage of programmingLanguages"
+          [ngClass]="{ 'active': isSelected(programmingLanguage) }"
+          (click)="toggleTag(programmingLanguage)"
         >
-        {{ technology }}
+        {{ programmingLanguage }}
+      </span>
+
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <h3>Database</h3>
+      <div class="filter-options">
+
+        <span
+          class="filter-option"
+          *ngFor="let database of databases"
+          [ngClass]="{ 'active': isSelected(database) }"
+          (click)="toggleTag(database)"
+        >
+        {{ database }}
       </span>
 
       </div>
@@ -63,7 +80,7 @@
     <div class="projects-grid">
       <div class="project-card" *ngFor="let project of filteredProjects">
         <a [routerLink]="['/projects', project.id]">
-          <img src="{{project.thumbnail}}" alt="{{project.title}}" class="project-image"/>
+          <img ngSrc="{{project.thumbnail}}" alt="{{project.title}}" class="project-image" height="400" width="400" priority/>
           <h3 class="project-name">{{ project.title }}</h3>
           <p class="project-description">{{ project.brief }}</p>
         </a>

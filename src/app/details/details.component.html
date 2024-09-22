@@ -1,6 +1,3 @@
-<!--<a class="back">-->
-<!--  <img src="https://res.cloudinary.com/dxgro47nn/image/upload/v1726815646/arrow_vahrud.png">-->
-<!--</a>-->
 <button class="back-button" (click)="goBack()">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
 </button>
@@ -12,13 +9,13 @@
     <p class="section-body" [innerHTML]="project.introduction "></p>
   </section>
 
-  <!-- prototype (Optional) -->
+  <!-- prototype-->
   <section *ngIf="project.prototype" class="prototype">
     <h3>Prototype</h3>
-    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/8LaxHS1iCLffQlfBZQCTOv/Work-By-Hour?node-id=24-5831&node-type=canvas&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=24%3A5831&embed-host=share" allowfullscreen></iframe>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/8LaxHS1iCLffQlfBZQCTOv/Work-By-Hour?node-id=24-5831&node-type=canvas&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=24%3A5831&embed-host=share&show-proto-sidebar=0" allowfullscreen></iframe>
   </section>
 
-  <!-- Demo (Optional) -->
+  <!-- Demo-->
   <section *ngIf="project.demoUrl" class="demo">
     <h3>Demo</h3>
     <video controls>
@@ -27,11 +24,28 @@
     </video>
   </section>
 
-  <!-- Image Slider (Optional) -->
-  <section *ngIf="project.images && project.images.length > 0" class="image-slider">
-    <h3>Media Library</h3>
-    <div class="slider">
-      <img *ngFor="let image of project.images; let i = index" [src]="image" alt="Project Image" [class.active]="i === 0"/>
+  <!-- Image Slider-->
+  <section *ngIf="project.images">
+    <h3>Media Gallery</h3>
+    <div class="slider-container" >
+      <!-- Image Display -->
+      <div class="slider-image">
+        <img [src]="project.images[currentIndex]" alt="Slider image" loading="eager">
+      </div>
+
+      <!-- Left and Right Arrows -->
+      <div class="slider-arrows">
+        <button (click)="prevImage()">&#x276E;</button>
+        <button (click)="nextImage()">&#x276F;</button>
+      </div>
+
+      <!-- Dots at the Bottom -->
+      <div class="slider-dots">
+    <span *ngFor="let image of project.images; let i = index"
+          [class.active]="i === currentIndex"
+          (click)="setCurrentIndex(i)">
+    </span>
+      </div>
     </div>
   </section>
 

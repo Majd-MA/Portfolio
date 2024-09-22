@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgOptimizedImage} from "@angular/common";
+import {NgOptimizedImage, provideCloudinaryLoader} from "@angular/common";
 import {PageService} from "../page.service";
 import {FormsModule} from "@angular/forms";
 
@@ -11,7 +11,10 @@ import {FormsModule} from "@angular/forms";
     FormsModule
   ],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.less'
+  styleUrl: './about.component.less',
+  providers:[
+    provideCloudinaryLoader('https://res.cloudinary.com/dxgro47nn')
+  ]
 })
 export class AboutComponent implements OnInit {
   constructor(private pageService: PageService) {}
@@ -24,13 +27,5 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.pageService.setInitIndex(3);
-  }
-
-  submitFeedback() {
-    // Log the form data to the console
-    console.log('Feedback Data:', this.feedbackData);
-
-    // Optional: You can add additional logic to handle the form submission
-    // like sending the data to a server or clearing the form.
   }
 }

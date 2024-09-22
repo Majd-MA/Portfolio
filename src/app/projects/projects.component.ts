@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgClass, NgForOf, NgIf, NgOptimizedImage, NgStyle} from "@angular/common";
+import {NgClass, NgForOf, NgIf, NgOptimizedImage, NgStyle, provideCloudinaryLoader} from "@angular/common";
 import {PageService} from "../page.service";
 import {ProjectsService} from "./projects.service";
 import {RouterLink} from "@angular/router";
@@ -31,9 +31,9 @@ export class ProjectsComponent implements OnInit {
   showTip = true;
   filteredProjects :any | undefined;
 
-  // Example categories
-  resources = ['NestJS', 'Laravel', 'ThreeJS', 'Unity', 'MongoDB', "MySQL", "React", "ChromaDB","FastAPI"];
-  technologies = ['TypeScript', 'JavaScript', "PHP", 'Python', "C#", "HTML", "CSS"];
+  frameworks = ['NestJS', 'Laravel', 'ThreeJS', 'Unity', "React","FastAPI"];
+  programmingLanguages = ['TypeScript', 'JavaScript', "PHP", 'Python', "C#", "HTML"];
+  databases = ['MySQL','MongoDB','ChromaDB']
 
   ngOnInit() {
     setTimeout(() => {
@@ -60,7 +60,7 @@ export class ProjectsComponent implements OnInit {
 
   toggleTag(tag: string) {
     if (this.isSelected(tag)) {
-      this.selectedTags = this.selectedTags.filter(t => t !== tag); // Remove tag if already selected
+      this.selectedTags = this.selectedTags.filter(t => t !== tag);
     } else {
       this.selectedTags.push(tag);
     }

@@ -13,8 +13,8 @@ export const routes: Routes = [
   { path: 'achievements', component: AchievementsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'projects/:id', component: DetailsComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },  // Default to home
-  { path: '**', component:PageNotFoundComponent }  // Fallback
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component:PageNotFoundComponent }
 ];
 
 @NgModule({

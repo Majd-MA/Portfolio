@@ -8,27 +8,52 @@ export class ProjectsService {
     {
       id: 'work-by-hour',
       title: 'Work By Hour',
-      thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/t_WBH-filled/v1726236276/wbh_logo-01_xqpln0.png",
-      brief: 'Employment application for free-lancing jobs',
-      introduction: 'Employment application for free-lancing jobs',
+      thumbnail: "/t_WBH-filled/v1726236276/wbh_logo-01_xqpln0.png",
+      brief: 'Employment Platform designed for hour-based work, leveraging advanced and secure technologies to streamline job matching and management.',
+      introduction: 'Is a mobile and web platform designed to connect service providers with customers for hourly-based jobs. The system is optimized for performance and security, with a focus on efficient service matching, negotiation. The project integrates advanced backend functionalities, ensuring secure, real-time negotiation between users and streamlined job management.',
       prototype:"https://embed.figma.com/proto/8LaxHS1iCLffQlfBZQCTOv/Work-By-Hour?node-id=24-5831&node-type=canvas&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=24%3A5831&embed-host=share",
-      // demoUrl: 'assets/demo1.mp4',
-      // images: ['assets/img1.jpg', 'assets/img2.jpg'],
       overview: [
         {
-          title: 'Section Title',
-          body:"Section Body"
-        }
+          title: 'Project Scope',
+          body: 'The system\'s primary goal is to streamline the process of matching service providers with customers who need their help. It allows:<br><br>' +
+            '<b>➖Service Providers</b> to showcase their skills, manage their schedules, and apply for jobs posted by customers.<br>' +
+            '<b>➖Customers</b> to post job listings, review service providers, and choose the best person for their needs.<br><br>' +
+            '<b>Both parties</b> to interact securely, negotiate details, and leave feedback, ensuring transparency and quality.'
+        },
+        {
+          title: 'Nonfunctional Requirements',
+          body:  '<b>Performance Optimization:</b> <br>' +
+            '<b>➖ Lazy Loading:</b> Only load the parts of the app needed by the user at any given time to enhance speed.<br>' +
+            '<b>➖ Pagination:</b> Limit the display of data to improve performance.<br><br>' +
+            '<b>Image Optimization:</b> Convert images to AVIF format, which reduces their size and improves loading times.<br>'
+
+        },
+        {
+          title: 'Recommendation System',
+          body: 'The <b>Work By Hour</b> platform features an advanced <b>Knowledge-based Recommendation System</b> designed to match service providers with jobs that align with their skills, location, experience, and customer satisfaction. This system enhances the job-matching process by intelligently selecting the most suitable jobs for each service provider, rather than displaying all available jobs.<br><ul>' +
+            '<li><b>Multi-Criteria Evaluation:</b> The recommendation system considers factors such as cost, location, and past performance (ratings), ensuring that job requirements align with the service provider\'s capabilities.</li>' +
+            '<li><b>Dynamic Weighting:</b> The system uses dynamic weights to evaluate different factors like experience and customer satisfaction, making the recommendations more precise and effective.</li>' +
+            '<li><b>Dual Methodology:</b> The system integrates both <b>Content-based</b> filtering and <b>Knowledge-based</b> recommendations, allowing for more accurate and personalized job suggestions for each service provider.</li>' +
+            '<li><b>Feedback Mechanism:</b> Service providers can provide feedback on job recommendations, helping to refine and improve the system’s accuracy over time.</li>' +
+            '<li><b>Data Collection and Analysis:</b> The system continuously collects data on job completion, customer satisfaction, and recommendation outcomes, which are analyzed to improve long-term recommendation performance.</li></ul>'
+
+        },
+        {
+          title: 'Technologies Used',
+          body:"<b>Backend:</b> The backend was developed using <b>NestJS</b>, providing fast, asynchronous logic handling, particularly important for real-time features like negotiation.<br><br>" +
+               "<b>Real-Time Communication:</b> Implemented with <b>Socket.io</b>, real-time negotiation allowed service providers and customers to securely negotiate job offers in a closed room. The system was built with <b>middleware</b> to ensure secure WebSocket connections and manage errors effectively.<br>"
+        },
       ],
-      challenges: 'Challenges faced...',
-      technologies: ['NestJS', 'TypeScript', 'MongoDB'],
+      challenges: '<b>Authentication for Real-Time Negotiation:</b> One major challenge was securing the WebSocket connections for negotiation. This was solved by creating middleware to handle socket connections securely, ensuring only authenticated users could enter negotiation rooms.<br><br>' +
+                  '<b>Error Handling in WebSockets:</b> Another challenge was managing errors triggered by WebSocket connections before the global error filter could catch them, which risked stopping the server. This was resolved by implementing a separate middleware to handle WebSocket errors and log them for further analysis, improving stability and debugging efficiency.<br>',
+      technologies: ['NestJS', 'TypeScript', 'MongoDB','Socket.io','Firebase'],
     },
 
     {
       id: 'finou',
       title: 'Finou',
-      thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726808881/Finou_j46bzz.png",
-      brief: 'A social platform for designers to enhance skills, showcase portfolios, and connect with companies through contests and job opportunities.',
+      thumbnail: "/v1726808881/Finou_j46bzz.png",
+      brief: 'Social platform for designers to enhance skills, showcase portfolios, and connect with companies through contests and job opportunities.',
       introduction: 'This mobile app is designed for <b>designers</b> from various specialties—such as logo creation, video editing, and more—providing a comprehensive platform for building portfolios, participating in contests, and connecting with companies for job opportunities. The app’s features include real-time communication, automated contests, and advanced image handling, making it an essential tool for designers to showcase their skills and enhance their career growth.',
       demoUrl: 'https://res.cloudinary.com/dxgro47nn/video/upload/v1726806776/Abd_Facebook_gsipb4.mp4',
       images: [
@@ -66,7 +91,6 @@ export class ProjectsService {
 
       ],
       challenges: '<b>➖ Scalability:</b> Managing the app\'s large volume of user-uploaded images, portfolios, and contests was streamlined using Cloudinary for efficient image handling and AVIF compression.<br><br>' +
-                  '<b>➖ Real-Time Communication: </b> Implementing a real-time chat system using Socket.io, with middleware ensuring security and effective management of communication between designers and companies.<br><br>' +
                   '<b>➖ Performance:</b>  Lazy loading and image compression improved the app’s performance, making it scalable to accommodate a growing user base without sacrificing speed.',
       technologies: ['NestJS', 'TypeScript', "MySQL", "React", "Socket.io","Firebase"],
     },
@@ -74,11 +98,10 @@ export class ProjectsService {
     {
       id: 'chess-former',
       title: 'Chess Former',
-      thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726364275/cover_16x9-1707829224639_pse1mo-removebg-preview_tzdrdr.png",
-      brief: 'Chess Former is a strategic puzzle game where players use chess piece movements to eliminate the king, featuring an auto-solve powered by advanced algorithms.',
+      thumbnail: "/v1726364275/cover_16x9-1707829224639_pse1mo-removebg-preview_tzdrdr.png",
+      brief: 'Strategic puzzle game where players use chess piece movements to eliminate the king, featuring an auto-solve powered by advanced algorithms.',
       introduction: '<b>Chess Former</b> is a strategy game inspired by the original Chess-Former. Players must eliminate the king using chess pieces, with movement restricted by the traditional rules of each piece. The game integrates puzzle-solving mechanics with classic chess strategy.',
       demoUrl: 'https://gitlab.com/the-teachers-public/chess-former/-/raw/main/Chess-Former_Demo.mp4',
-      // images: ['assets/img1.jpg', 'assets/img2.jpg'],
       overview: [
         {
           title:"Game Objective",
@@ -112,11 +135,10 @@ export class ProjectsService {
     {
       id: 'QSmart',
       title: 'QSmart',
-      thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726800756/thumbnail_sntu4w.png",
-      brief: 'A high-performance Information Retrieval system designed for Q&A datasets, delivering fast and accurate document matching and query ranking.',
+      thumbnail: "/v1726800756/thumbnail_sntu4w.png",
+      brief: 'Information Retrieval system designed for Q&A datasets, delivering fast and accurate document matching and query ranking.',
       introduction: 'The project focuses on building an efficient Information Retrieval (IR) system using two datasets:<br><b>Antique</b> and <b>Lotte/Science</b>. The aim is to retrieve relevant documents for user queries and rank them based on relevance,' +
-        ' utilizing advanced techniques such as word embeddings and vector space models for optimal performance.<br><br> Used Datasets Page <a href="https://ir-datasets.com/" target="_blank"><img src="https://res.cloudinary.com/dxgro47nn/image/upload/v1726801131/OIP_ao2utb.jpg" height="15" width="15"></a>',
-      // demoUrl: 'assets/demo1.mp4',
+        ' utilizing advanced techniques such as word embeddings and vector space models for optimal performance.<br><br> Used Datasets Page <a href="https://ir-datasets.com/" target="_blank"><img src="https://res.cloudinary.com/dxgro47nn/image/upload/v1726801131/OIP_ao2utb.jpg" height="15" width="15" alt="open-link"></a>',
       images: [
         'https://res.cloudinary.com/dxgro47nn/image/upload/v1726803447/2_o1my3q.png',
         'https://res.cloudinary.com/dxgro47nn/image/upload/v1726804078/2-r_ngkfig.png',
@@ -162,8 +184,8 @@ export class ProjectsService {
     {
       id: 'satellite-simulation',
       title: 'Satellite Simulation',
-      thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726364210/istockphoto-1208005312-612x612_hkrxiw-removebg-preview_nemcx4.png",
-      brief: 'This project models a satellite’s elliptical motion, orbital transitions, and planetary gravitational influences, providing real-time location and speed data.',
+      thumbnail: "/v1726364210/istockphoto-1208005312-612x612_hkrxiw-removebg-preview_nemcx4.png",
+      brief: 'Simulation that models a satellite’s elliptical motion, orbital transitions, and planetary gravitational influences, providing real-time location and speed data.',
       introduction:"This project presents an in-depth analysis of the physical forces that " +
         "govern the motion of satellites in outer space, with an emphasis on simulating " +
         "and predicting their orbital trajectories.The primary objective was to model the " +
@@ -215,8 +237,8 @@ export class ProjectsService {
     {
       id: 'leaf',
       title: 'Leaf',
-      thumbnail: "https://res.cloudinary.com/dxgro47nn/image/upload/v1726809009/leaves-green-icon-isolated-on-white-background-free-vector_ea1ffo.png",
-      brief: 'Scalable pharmacy management system built with Laravel and Flutter, featuring advanced search, real-time monitoring, and automated reports.',
+      thumbnail: "/v1726809009/leaves-green-icon-isolated-on-white-background-free-vector_ea1ffo.png",
+      brief: 'Pharmacy management system built with Laravel and Flutter, featuring advanced search, real-time monitoring, and automated reports.',
       introduction: 'This project involved building a comprehensive Pharmacy Management System aimed at streamlining the daily operations of a pharmacy, from inventory management to customer interactions. The system was designed to automate key processes, reduce the workload for pharmacists, and ensure efficiency in managing drug stocks, sales, and purchases.',
       overview: [
         {
@@ -247,8 +269,6 @@ export class ProjectsService {
       ],
       technologies: ['Laravel', 'PHP', "MySQL"],
     },
-
-
   ];
 
   constructor() {}

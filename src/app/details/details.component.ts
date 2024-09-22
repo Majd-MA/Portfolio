@@ -16,14 +16,14 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class DetailsComponent implements OnInit{
   project: any;
+  autoSlide = true;
+  currentIndex = 0;
 
   constructor(
     private route: ActivatedRoute,
     private projectsService: ProjectsService,
     private router: Router
   ) {}
-
-  currentImageIndex = 0;
 
   ngOnInit(): void {
     const projectId = this.route.snapshot.paramMap.get('id');
@@ -36,16 +36,30 @@ export class DetailsComponent implements OnInit{
 
     if(this.project.images)
     setInterval(() => {
-      this.showNextImage();
+      if(this.autoSlide){
+        if (this.currentIndex <= this.project.images.length - 2)
+          this.currentIndex++;
+        else{
+          this.currentIndex=0;
+        }
+      }
     }, 3000);
 
   }
 
-  showNextImage() {
-    const images = document.querySelectorAll('.image-slider .slider img');
-    images[this.currentImageIndex].classList.remove('active');
-    this.currentImageIndex = (this.currentImageIndex + 1) % images.length;
-    images[this.currentImageIndex].classList.add('active');
+  nextImage() {
+    this.autoSlide = false;
+    this.currentIndex = (this.currentIndex + 1) % this.project.images.length;
+  }
+
+  prevImage() {
+    this.autoSlide = false;
+    this.currentIndex = (this.currentIndex - 1 + this.project.images.length) % this.project.images.length;
+  }
+
+  setCurrentIndex(index: number) {
+    this.autoSlide = false;
+    this.currentIndex = index;
   }
 
   goBack(){
