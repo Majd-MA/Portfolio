@@ -1,5 +1,6 @@
 <div class="container">
-  <img *ngIf="activate" src="https://res.cloudinary.com/dxgro47nn/image/upload/v1726625140/directions_uukjpy.png" alt=" "/>
+  <img *ngIf="canActivate" [class]="activate?'activeImg': 'inactiveImg'"  src="https://res.cloudinary.com/dxgro47nn/image/upload/v1726625140/directions_uukjpy.png" alt="animated-img"/>
+    <div class="finger-drag-animation" *ngIf="tip"></div>
 
   <div class="dots" (mouseenter)="onHover()" (mouseleave)="this.activate=false">
     <div *ngFor="let page of [].constructor(totalPages); let i = index"

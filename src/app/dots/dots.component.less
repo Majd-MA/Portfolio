@@ -2,39 +2,49 @@
 @dot-color: #555;
 @dot-active-color: #000;
 @transition-duration: 0.3s;
-.container{
-  img{
-    position: fixed;
-    z-index: 99;
-    bottom: 20px;
-    left: 50%;
-    width: @dot-size * 85;
-    height: @dot-size * 40;
-    transform: translate(-50%,53%);
+.container img {
+  position: fixed;
+  z-index: 99;
+  bottom: 20px;
+  left: 50%;
+  width: @dot-size * 85;
+  height: @dot-size * 40;
+  transform: translate(-50%, 53%);
+  background-color: rgba(0, 0, 0, 0.0);
+  filter: grayscale(100%);
+  opacity: 0;
+}
+
+.activeImg {
+  animation: reveal 4s forwards;
+}
+
+.inactiveImg {
+  animation: reverseReveal 2s forwards;
+}
+
+@keyframes reveal {
+  0% {
+    clip-path: circle(0% at 50% 50%);
     opacity: 0;
-    animation: reveal 3s forwards;
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes reveal {
-      0% {
-        clip-path: circle(0% at 50% 50%);
-        opacity: 0;
-      }
-      100% {
-        clip-path: circle(75% at 50% 50%);
-        opacity: 1;
-      }
-    }
+  }
+  100% {
+    clip-path: circle(75% at 50% 50%);
+    opacity: 1;
   }
 }
+
+@keyframes reverseReveal {
+  0% {
+    clip-path: circle(75% at 50% 50%);
+    opacity: 1;
+  }
+  100% {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0;
+  }
+}
+
 
 .dots {
   position: fixed;
@@ -55,5 +65,29 @@
 
   &.active {
     background-color: @dot-active-color;
+  }
+}
+
+.finger-drag-animation {
+  position: absolute;
+  bottom: 20%;
+  right: 35%;
+  width: 10%;
+  height: 10%;
+  background-image: url('https://res.cloudinary.com/dxgro47nn/image/upload/v1727394716/image_2024-09-27_025153653_dweaic.png'); // Replace with the path to your finger image
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 1;
+  animation: fingerDrag 2s infinite;
+}
+
+@keyframes fingerDrag {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
   }
 }
